@@ -19,4 +19,4 @@ addBookToLibrary(theHobbit);
 addBookToLibrary(Dune);
 addBookToLibrary(AtomicHabbit);
 
-console.log(myLibrary);
+const btnAdd = document.getElementById(btnAdd);
