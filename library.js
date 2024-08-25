@@ -42,7 +42,7 @@ function displayLibrary(myLibrary) {
     cardWrapper.append(bookPages);
     bookPages.textContent = e.pages;
 
-    const btnRead = document.createElement("p");
+    const btnRead = document.createElement("button");
     btnRead.setAttribute("id", "btn-read");
     cardWrapper.append(btnRead);
     btnRead.textContent = e.read;
