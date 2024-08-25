@@ -22,24 +22,33 @@ addBookToLibrary(AtomicHabbit);
 const btnAdd = document.querySelector("#btnAdd");
 const container = document.querySelector(".container");
 
-const bookTitle = document.createElement("h3");
-bookTitle.setAttribute("class", "book-title");
-container.append(bookTitle);
-
-const bookAuthor = document.createElement("p");
-bookAuthor.setAttribute("class", "book-author");
-container.append(bookAuthor);
-
-const bookPages = document.createElement("p");
-bookPages.setAttribute("class", "book-pages");
-container.append(bookPages);
-
-const btnRead = document.createElement("p");
-btnRead.setAttribute("id", "btn-read");
-container.append(btnRead);
-
 function displayLibrary(myLibrary) {
   myLibrary.forEach((e) => {
-    e;
+    const cardWrapper = document.createElement("div");
+    cardWrapper.setAttribute("class", "card-wrapper");
+
+    const bookTitle = document.createElement("h3");
+    bookTitle.setAttribute("class", "book-title");
+    cardWrapper.append(bookTitle);
+    bookTitle.textContent = e.title;
+
+    const bookAuthor = document.createElement("p");
+    bookAuthor.setAttribute("class", "book-author");
+    cardWrapper.append(bookAuthor);
+    bookAuthor.textContent = e.author;
+
+    const bookPages = document.createElement("p");
+    bookPages.setAttribute("class", "book-pages");
+    cardWrapper.append(bookPages);
+    bookPages.textContent = e.pages;
+
+    const btnRead = document.createElement("p");
+    btnRead.setAttribute("id", "btn-read");
+    cardWrapper.append(btnRead);
+    btnRead.textContent = e.read;
+
+    container.append(cardWrapper);
   });
 }
+
+displayLibrary(myLibrary);
