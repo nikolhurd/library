@@ -51,4 +51,6 @@ function displayLibrary(myLibrary) {
   });
 }
 
-displayLibrary(myLibrary);
+document.addEventListener("DOMContentLoaded", () => {
+  displayLibrary(myLibrary);
+});
