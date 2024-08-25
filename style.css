@@ -1,0 +1,66 @@
+/* Variables */
+html {
+  --padding: clamp(1rem, 1.53vw + 0.694rem, 2rem);
+  --padding-s: clamp(0.1rem, 0.612vw + -0.022rem, 0.5rem);
+  --border-radius: 10px;
+}
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: aliceblue;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea {
+  font: inherit;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--padding);
+}
+
+/* Main */
+
+main {
+  padding: var(--padding);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  gap: var(--padding);
+  width: 100%;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: var(--padding-s);
+  background-color: lightblue;
+  padding: var(--padding);
+  height: 300px;
+  width: 220px;
+  border-radius: var(--border-radius);
+}
