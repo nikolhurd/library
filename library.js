@@ -13,6 +13,7 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(newBook) {
   myLibrary.push(newBook);
 }
+
 // Example books to add to the library
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
 const Dune = new Book("Dune", "Frank Herbert", 412, "not read yet");
@@ -26,6 +27,18 @@ addBookToLibrary(AtomicHabbit);
 // Picking HTML elements for using them in JS
 const btnAdd = document.querySelector("#btnAdd");
 const container = document.querySelector(".container");
+const dialog = document.querySelector("dialog");
+const closeButton = document.querySelector("dialog button");
+
+// "Show the dialog" button opens the dialog modally
+btnAdd.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+// "Close" button closes the dialog
+closeButton.addEventListener("click", () => {
+  dialog.close();
+});
 
 // Displaying each book to frontend
 function displayLibrary(myLibrary) {
