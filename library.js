@@ -29,16 +29,8 @@ const btnAdd = document.querySelector("#btnAdd");
 const container = document.querySelector(".container");
 const dialog = document.querySelector("dialog");
 const closeButton = document.querySelector("dialog button");
-
-// "Show the dialog" button opens the dialog modally
-btnAdd.addEventListener("click", () => {
-  dialog.showModal();
-});
-
-// "Close" button closes the dialog
-closeButton.addEventListener("click", () => {
-  dialog.close();
-});
+const btnSubmitBook = document.querySelector("#create-book");
+const addBookForm = document.querySelector("#addBookForm");
 
 // Displaying each book to frontend
 function displayLibrary(myLibrary) {
@@ -73,4 +65,26 @@ function displayLibrary(myLibrary) {
 // Displaying the myLibrary content when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   displayLibrary(myLibrary);
+});
+
+// MODAL
+// "Show the dialog" button opens the dialog modally
+btnAdd.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+// "Close" button closes the dialog
+closeButton.addEventListener("click", () => {
+  e.preventDefault();
+  dialog.close();
+});
+
+// Submiting the book
+btnSubmitBook.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  let title = document.getElementById("title");
+  let author = document.getElementById("author");
+  let pages = document.getElementById("pages");
+  let isChecked = document.getElementById("checkbox-read").checked;
 });

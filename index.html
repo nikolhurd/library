@@ -22,6 +22,35 @@
     <dialog>
       <button autofocus>X</button>
       <h2>Add new book</h2>
+      <form id="addBookForm">
+        <input
+          type="text"
+          id="title"
+          name="title"
+          required
+          placeholder="Title"
+        />
+        <input
+          type="text"
+          id="author"
+          name="author"
+          required
+          placeholder="Author"
+        />
+        <input
+          type="number"
+          id="pages"
+          name="pages"
+          required
+          placeholder="Pages"
+        />
+        <!-- Switch -->
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider"></span>
+        </label>
+        <button type="submit" id="create-book">Create Book</button>
+      </form>
     </dialog>
   </body>
 </html>
