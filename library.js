@@ -1,5 +1,7 @@
+// Array to store the books
 const myLibrary = [];
 
+// Constructor for books objects
 function Book(title, author, pages, read) {
   (this.title = title),
     (this.author = author),
@@ -7,21 +9,25 @@ function Book(title, author, pages, read) {
     (this.read = read);
 }
 
+// Adds a new book to the library array
 function addBookToLibrary(newBook) {
   myLibrary.push(newBook);
 }
-
+// Example books to add to the library
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
 const Dune = new Book("Dune", "Frank Herbert", 412, "not read yet");
 const AtomicHabbit = new Book("Atomic Habits", "James Clear", 306, "read");
 
+// Manually added books to array
 addBookToLibrary(theHobbit);
 addBookToLibrary(Dune);
 addBookToLibrary(AtomicHabbit);
 
+// Picking HTML elements for using them in JS
 const btnAdd = document.querySelector("#btnAdd");
 const container = document.querySelector(".container");
 
+// Displaying each book to frontend
 function displayLibrary(myLibrary) {
   myLibrary.forEach((e) => {
     const cardWrapper = document.createElement("div");
@@ -51,6 +57,7 @@ function displayLibrary(myLibrary) {
   });
 }
 
+// Displaying the myLibrary content when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   displayLibrary(myLibrary);
 });
