@@ -45,9 +45,12 @@ function displayLibrary(myLibrary) {
     cardWrapper.append(btnDeleteBook);
     btnDeleteBook.textContent = "X";
 
+    // Ev listener for delete button
     btnDeleteBook.addEventListener("click", () => {
-      let index = cardWrapper.dataset.index;
+      let index = parseInt(cardWrapper.dataset.index);
       console.log("index: ", index);
+      removeBook(index);
+      displayLibrary(myLibrary);
     });
 
     const bookTitle = document.createElement("h3");
@@ -73,6 +76,11 @@ function displayLibrary(myLibrary) {
     container.append(cardWrapper);
   });
 }
+
+// Removing book in MyLibrary
+const removeBook = (index) => {
+  myLibrary.splice(index, 1);
+};
 
 // Displaying the myLibrary content when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
