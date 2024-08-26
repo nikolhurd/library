@@ -35,9 +35,15 @@ const addBookForm = document.querySelector("#addBookForm");
 // Displaying each book to frontend
 function displayLibrary(myLibrary) {
   container.innerHTML = ""; // Clear the container before displaying the updated library
-  myLibrary.forEach((e) => {
+  myLibrary.forEach((e, index) => {
     const cardWrapper = document.createElement("div");
     cardWrapper.setAttribute("class", "card-wrapper");
+    cardWrapper.setAttribute("data-index", index);
+
+    const btnDeleteBook = document.createElement("button");
+    btnDeleteBook.setAttribute("class", "btn-delete");
+    cardWrapper.append(btnDeleteBook);
+    btnDeleteBook.textContent = "X";
 
     const bookTitle = document.createElement("h3");
     bookTitle.setAttribute("class", "book-title");
@@ -76,7 +82,6 @@ btnAdd.addEventListener("click", () => {
 
 // "Close" button closes the dialog
 closeButton.addEventListener("click", () => {
-  e.preventDefault();
   dialog.close();
 });
 
@@ -91,14 +96,9 @@ btnSubmitBook.addEventListener("click", (e) => {
     ? "read"
     : "not read yet";
 
-  if (title && author && pages) {
-    let newBook = new Book(title, author, pages, isRead);
-    console.log(newBook);
-    addBookToLibrary(newBook);
-    displayLibrary(myLibrary);
-    dialog.close();
-    addBookForm.reset();
-  } else {
-    // incomplete form submission
-  }
+  let newBook = new Book(title, author, pages, isRead);
+  addBookToLibrary(newBook);
+  displayLibrary(myLibrary);
+  dialog.close();
+  addBookForm.reset();
 });
