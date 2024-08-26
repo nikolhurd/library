@@ -40,7 +40,7 @@ function displayLibrary(myLibrary) {
     const bookPages = document.createElement("p");
     bookPages.setAttribute("class", "book-pages");
     cardWrapper.append(bookPages);
-    bookPages.textContent = e.pages;
+    bookPages.textContent = e.pages + " pages";
 
     const btnRead = document.createElement("button");
     btnRead.setAttribute("id", "btn-read");
