@@ -34,6 +34,7 @@ const addBookForm = document.querySelector("#addBookForm");
 
 // Displaying each book to frontend
 function displayLibrary(myLibrary) {
+  container.innerHTML = ""; // Clear the container before displaying the updated library
   myLibrary.forEach((e) => {
     const cardWrapper = document.createElement("div");
     cardWrapper.setAttribute("class", "card-wrapper");
@@ -83,8 +84,21 @@ closeButton.addEventListener("click", () => {
 btnSubmitBook.addEventListener("click", (e) => {
   e.preventDefault();
 
-  let title = document.getElementById("title");
-  let author = document.getElementById("author");
-  let pages = document.getElementById("pages");
-  let isChecked = document.getElementById("checkbox-read").checked;
+  let title = document.getElementById("title").value;
+  let author = document.getElementById("author").value;
+  let pages = document.getElementById("pages").value;
+  let isRead = document.getElementById("checkbox-read").checked
+    ? "read"
+    : "not read yet";
+
+  if (title && author && pages) {
+    let newBook = new Book(title, author, pages, isRead);
+    console.log(newBook);
+    addBookToLibrary(newBook);
+    displayLibrary(myLibrary);
+    dialog.close();
+    addBookForm.reset();
+  } else {
+    // incomplete form submission
+  }
 });
