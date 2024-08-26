@@ -45,6 +45,11 @@ function displayLibrary(myLibrary) {
     cardWrapper.append(btnDeleteBook);
     btnDeleteBook.textContent = "X";
 
+    btnDeleteBook.addEventListener("click", () => {
+      let index = cardWrapper.dataset.index;
+      console.log("index: ", index);
+    });
+
     const bookTitle = document.createElement("h3");
     bookTitle.setAttribute("class", "book-title");
     cardWrapper.append(bookTitle);
