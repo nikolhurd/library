@@ -68,6 +68,7 @@ function displayLibrary(myLibrary) {
     bookPages.textContent = e.pages + " pages";
 
     const checkboxWrapper = document.createElement("div");
+    checkboxWrapper.setAttribute("class", "checkbox-wrapper");
     cardWrapper.append(checkboxWrapper);
     const checkboxRead = document.createElement("input");
     const checkboxLabel = document.createElement("label");
