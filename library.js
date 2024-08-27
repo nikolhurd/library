@@ -35,7 +35,7 @@ const addBookForm = document.querySelector("#addBookForm");
 // Displaying each book to frontend
 function displayLibrary(myLibrary) {
   container.innerHTML = ""; // Clear the container before displaying the updated library
-  myLibrary.forEach((e, index) => {
+  myLibrary.forEach((book, index) => {
     const cardWrapper = document.createElement("div");
     cardWrapper.setAttribute("class", "card-wrapper");
     cardWrapper.setAttribute("data-index", index);
@@ -55,17 +55,17 @@ function displayLibrary(myLibrary) {
     const bookTitle = document.createElement("h3");
     bookTitle.setAttribute("class", "book-title");
     cardWrapper.append(bookTitle);
-    bookTitle.textContent = e.title;
+    bookTitle.textContent = book.title;
 
     const bookAuthor = document.createElement("p");
     bookAuthor.setAttribute("class", "book-author");
     cardWrapper.append(bookAuthor);
-    bookAuthor.textContent = e.author;
+    bookAuthor.textContent = book.author;
 
     const bookPages = document.createElement("p");
     bookPages.setAttribute("class", "book-pages");
     cardWrapper.append(bookPages);
-    bookPages.textContent = e.pages + " pages";
+    bookPages.textContent = book.pages + " pages";
 
     const checkboxWrapper = document.createElement("div");
     checkboxWrapper.setAttribute("class", "checkbox-wrapper");
@@ -77,13 +77,13 @@ function displayLibrary(myLibrary) {
     checkboxWrapper.append(checkboxRead);
     checkboxWrapper.append(checkboxLabel);
 
-    checkboxRead.checked = e.isRead;
-    checkboxLabel.textContent = e.isRead ? "Read" : "Not Read";
+    checkboxRead.checked = book.isRead;
+    checkboxLabel.textContent = book.isRead ? "Read" : "Not Read";
 
     // Ev listener for checkbox
     checkboxRead.addEventListener("change", () => {
-      e.toggleReadStatus();
-      checkboxLabel.textContent = e.isRead ? "Read" : "Not Read";
+      book.toggleReadStatus();
+      checkboxLabel.textContent = book.isRead ? "Read" : "Not Read";
     });
 
     container.append(cardWrapper);
@@ -116,8 +116,8 @@ closeButton.addEventListener("click", () => {
 });
 
 // Submiting the book
-btnSubmitBook.addEventListener("click", (e) => {
-  e.preventDefault();
+btnSubmitBook.addEventListener("click", (book) => {
+  book.preventDefault();
 
   let title = document.getElementById("title").value;
   let author = document.getElementById("author").value;
