@@ -12,6 +12,7 @@ html {
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  color: rgb(45, 45, 45);
 }
 
 body {
@@ -32,12 +33,34 @@ textarea {
   font: inherit;
 }
 
+button {
+  border: none;
+  width: auto;
+  overflow: visible;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 /* Header */
 header {
   display: flex;
   justify-content: space-between;
   padding: var(--padding);
   box-shadow: var(--box-shadow);
+}
+
+#btnAdd,
+#create-book {
+  background-color: rgb(210, 234, 243);
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  border: 1px solid rgb(210, 234, 243);
+}
+
+#btnAdd:hover,
+#create-book:hover {
+  background-color: lightblue;
+  border: 1px solid rgb(194, 194, 194);
 }
 
 /* Main */
@@ -69,43 +92,87 @@ main {
   box-shadow: var(--box-shadow);
 }
 
-.btn-delete {
+.btn-delete,
+.form-wrapper button:first-child {
   position: absolute;
   top: 20px;
   right: 20px;
-  background-color: transparent;
-  border: none;
   min-width: 20px;
   min-height: 20px;
 }
 
-.btn-delete:hover {
+.btn-delete:hover,
+.form-wrapper button:first-child:hover {
   background-color: rgb(189, 229, 242);
   border-radius: 20%;
-  cursor: pointer;
 }
 
 .card-wrapper div {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .card-wrapper div input {
   order: 1;
 }
 
-#btnAdd {
-  border: none;
-  width: auto;
-  overflow: visible;
-  background-color: rgb(210, 234, 243);
-  padding: 10px 20px;
-  border-radius: var(--border-radius);
-  border: 1px solid rgb(210, 234, 243);
+/* Modal */
+
+::backdrop {
+  background-color: black;
+  opacity: 0.5;
 }
 
-#btnAdd:hover {
-  background-color: lightblue;
-  border: 1px solid grey;
-  cursor: pointer;
+dialog {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  height: 38vh;
+  width: 30vh;
+  border: none !important;
+  border-radius: var(--border-radius);
+}
+
+.form-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding);
+  gap: var(--padding);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-s);
+}
+
+.form-wrapper input {
+  height: 38px;
+  border: none;
+  border-bottom: 1px solid rgb(171, 176, 178);
+  padding-left: 8px;
+}
+
+.form-wrapper input:not(:last-child),
+.form-wrapper button {
+  margin-bottom: 15px;
+}
+
+.form-wrapper div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--padding-s);
+}
+
+#create-book {
+  margin-top: 25px;
+}
+
+.form-wrapper button:first-child:hover {
+  background-color: rgb(233, 233, 233);
 }

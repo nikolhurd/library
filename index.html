@@ -20,38 +20,40 @@
     </main>
     <footer></footer>
     <dialog>
-      <button autofocus>X</button>
-      <h2>Add new book</h2>
-      <form id="addBookForm">
-        <input
-          type="text"
-          id="title"
-          name="title"
-          required
-          placeholder="Title"
-        />
-        <input
-          type="text"
-          id="author"
-          name="author"
-          required
-          placeholder="Author"
-        />
-        <input
-          type="number"
-          id="pages"
-          name="pages"
-          required
-          min="1"
-          step="1"
-          placeholder="Pages"
-        />
-        <div>
-          <label> Have you read the book?</label>
-          <input type="checkbox" class="checkbox-read" />
-        </div>
-        <button type="submit" id="create-book">Create Book</button>
-      </form>
+      <div class="form-wrapper">
+        <button autofocus>X</button>
+        <h2>Add new book</h2>
+        <form id="addBookForm">
+          <input
+            type="text"
+            id="title"
+            name="title"
+            required
+            placeholder="Title"
+          />
+          <input
+            type="text"
+            id="author"
+            name="author"
+            required
+            placeholder="Author"
+          />
+          <input
+            type="number"
+            id="pages"
+            name="pages"
+            required
+            min="1"
+            step="1"
+            placeholder="Pages"
+          />
+          <div>
+            <label> Have you read the book?</label>
+            <input type="checkbox" class="checkbox-read" />
+          </div>
+          <button type="submit" id="create-book">Create Book</button>
+        </form>
+      </div>
     </dialog>
   </body>
 </html>
