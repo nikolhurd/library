@@ -53,6 +53,7 @@ main {
 }
 
 .card-wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -63,4 +64,19 @@ main {
   height: 300px;
   width: 220px;
   border-radius: var(--border-radius);
+}
+
+.btn-delete {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.btn-delete:hover {
+  background-color: rgb(189, 229, 242);
+  border-radius: 20%;
 }
