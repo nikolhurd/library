@@ -3,10 +3,10 @@ const myLibrary = [];
 
 // Constructor for books objects
 function Book(title, author, pages, isRead) {
-  (this.title = title),
-    (this.author = author),
-    (this.pages = pages),
-    (this.isRead = this.isRead);
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.isRead = Boolean(isRead);
 }
 
 // Adds a new book to the library array
@@ -15,9 +15,9 @@ function addBookToLibrary(newBook) {
 }
 
 // Example books to add to the library
-const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
-const Dune = new Book("Dune", "Frank Herbert", 412, "not read yet");
-const AtomicHabbit = new Book("Atomic Habits", "James Clear", 306, "read");
+const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, true);
+const Dune = new Book("Dune", "Frank Herbert", 412, false);
+const AtomicHabbit = new Book("Atomic Habits", "James Clear", 306, true);
 
 // Manually added books to array
 addBookToLibrary(theHobbit);
@@ -67,10 +67,21 @@ function displayLibrary(myLibrary) {
     cardWrapper.append(bookPages);
     bookPages.textContent = e.pages + " pages";
 
-    const btnRead = document.createElement("button");
-    btnRead.setAttribute("id", "btn-read");
-    cardWrapper.append(btnRead);
-    btnRead.textContent = e.read;
+    const checkboxRead = document.createElement("input");
+    const checkboxLabel = document.createElement("label");
+    checkboxRead.setAttribute("type", "checkbox");
+    checkboxRead.setAttribute("class", "checkbox-read");
+    cardWrapper.append(checkboxRead);
+    cardWrapper.append(checkboxLabel);
+
+    checkboxRead.checked = e.isRead;
+    checkboxLabel.textContent = e.isRead ? "Read" : "Not Read";
+
+    // Ev listener for checkbox
+    checkboxRead.addEventListener("change", () => {
+      e.toggleReadStatus();
+      checkboxLabel.textContent = e.isRead ? "Read" : "Not Read";
+    });
 
     container.append(cardWrapper);
   });
@@ -79,6 +90,10 @@ function displayLibrary(myLibrary) {
 // Removing book in MyLibrary
 const removeBook = (index) => {
   myLibrary.splice(index, 1);
+};
+
+Book.prototype.toggleReadStatus = function () {
+  this.isRead = !this.isRead;
 };
 
 // Displaying the myLibrary content when DOM is loaded
@@ -104,9 +119,7 @@ btnSubmitBook.addEventListener("click", (e) => {
   let title = document.getElementById("title").value;
   let author = document.getElementById("author").value;
   let pages = document.getElementById("pages").value;
-  let isRead = document.getElementById("checkbox-read").checked
-    ? "read"
-    : "not read yet";
+  let isRead = document.getElementById("checkbox-read").checked ? true : false;
 
   let newBook = new Book(title, author, pages, isRead);
   addBookToLibrary(newBook);
