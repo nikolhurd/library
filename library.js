@@ -67,12 +67,14 @@ function displayLibrary(myLibrary) {
     cardWrapper.append(bookPages);
     bookPages.textContent = e.pages + " pages";
 
+    const checkboxWrapper = document.createElement("div");
+    cardWrapper.append(checkboxWrapper);
     const checkboxRead = document.createElement("input");
     const checkboxLabel = document.createElement("label");
     checkboxRead.setAttribute("type", "checkbox");
     checkboxRead.setAttribute("class", "checkbox-read");
-    cardWrapper.append(checkboxRead);
-    cardWrapper.append(checkboxLabel);
+    checkboxWrapper.append(checkboxRead);
+    checkboxWrapper.append(checkboxLabel);
 
     checkboxRead.checked = e.isRead;
     checkboxLabel.textContent = e.isRead ? "Read" : "Not Read";
