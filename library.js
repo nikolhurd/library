@@ -2,11 +2,11 @@
 const myLibrary = [];
 
 // Constructor for books objects
-function Book(title, author, pages, read) {
+function Book(title, author, pages, isRead) {
   (this.title = title),
     (this.author = author),
     (this.pages = pages),
-    (this.read = read);
+    (this.isRead = this.isRead);
 }
 
 // Adds a new book to the library array
@@ -48,7 +48,6 @@ function displayLibrary(myLibrary) {
     // Ev listener for delete button
     btnDeleteBook.addEventListener("click", () => {
       let index = parseInt(cardWrapper.dataset.index);
-      console.log("index: ", index);
       removeBook(index);
       displayLibrary(myLibrary);
     });
