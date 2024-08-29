@@ -122,7 +122,7 @@ btnSubmitBook.addEventListener("click", (book) => {
   let title = document.getElementById("title").value;
   let author = document.getElementById("author").value;
   let pages = document.getElementById("pages").value;
-  let isRead = document.getElementById("checkbox-read").checked ? true : false;
+  let isRead = document.getElementsByClassName("checkbox-read").checked;
 
   let newBook = new Book(title, author, pages, isRead);
   addBookToLibrary(newBook);
